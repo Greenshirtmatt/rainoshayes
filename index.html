@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rainos Hayes — Elite Surf Coaching, North Shore O'ahu</title>
+  <meta name="description" content="Rainos Hayes. 30+ years coaching surfing's elite. From groms to world champions. Private coaching, group clinics, video analysis, and competition prep on the North Shore of O'ahu.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --black: #0a0a0a;
+      --dark: #111111;
+      --dark-card: #161616;
+      --dark-accent: #1e1e1e;
+      --white: #f0ece6;
+      --white-soft: #c8c2b8;
+      --gold: #c9a84c;
+      --gold-dim: #8a7234;
+      --blue-deep: #1a3a4a;
+      --ocean: #2a6478;
+      --font-display: 'Oswald', sans-serif;
+      --font-body: 'Source Sans 3', sans-serif;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-weight: 300;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== GRAIN OVERLAY ===== */
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      padding: 1.25rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(to bottom, rgba(10,10,10,0.95), transparent);
+      transition: background 0.4s;
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.4rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .nav-logo span {
+      color: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--white-soft);
+      text-decoration: none;
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 2rem 6rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(175deg, rgba(10,10,10,0) 0%, rgba(10,10,10,0.2) 30%, rgba(10,10,10,0.85) 65%, rgba(10,10,10,0.97) 80%),
+        linear-gradient(to right, rgba(10,10,10,0.5), rgba(10,10,10,0.2)),
+        url('https://images.unsplash.com/photo-1502680390548-bdbac40e4a9f?w=1920&q=80&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center 30%;
+      background-repeat: no-repeat;
+    }
+
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      top: 15%;
+      right: 8%;
+      width: 300px;
+      height: 300px;
+      border: 1px solid rgba(201,168,76,0.08);
+      transform: rotate(15deg);
+    }
+
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      bottom: 25%;
+      right: 12%;
+      width: 180px;
+      height: 180px;
+      border: 1px solid rgba(201,168,76,0.05);
+      transform: rotate(-8deg);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+    }
+
+    .hero-tag {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: 0.8rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.3s forwards;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      line-height: 0.95;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.5s forwards;
+    }
+
+    .hero h1 .accent {
+      color: var(--gold);
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      font-weight: 300;
+      color: var(--white-soft);
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.7s forwards;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.9s forwards;
+    }
+
+    .stat-item {
+      border-left: 2px solid var(--gold-dim);
+      padding-left: 1rem;
+    }
+
+    .stat-number {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 2rem;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white-soft);
+      margin-top: 0.25rem;
+    }
+
+    /* ===== SECTIONS (shared) ===== */
+    section {
+      padding: 6rem 2rem;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-tag {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: clamp(2rem, 4vw, 3rem);
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      margin-bottom: 2rem;
+      line-height: 1.1;
+    }
+
+    /* ===== ABOUT ===== */
+    #about {
+      background: var(--dark);
+      border-top: 1px solid rgba(201,168,76,0.1);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--white-soft);
+      margin-bottom: 1.25rem;
+      font-size: 1.05rem;
+    }
+
+    .about-text p strong {
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    .about-image {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      filter: grayscale(30%) contrast(1.1);
+      margin-bottom: 1.5rem;
+    }
+
+    .credential-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .credential-list li {
+      padding: 1.25rem 1.5rem;
+      background: var(--dark-card);
+      border-left: 3px solid var(--gold-dim);
+      font-size: 0.95rem;
+      color: var(--white-soft);
+      transition: border-color 0.3s, background 0.3s;
+    }
+
+    .credential-list li:hover {
+      border-color: var(--gold);
+      background: var(--dark-accent);
+    }
+
+    .credential-list li .cred-title {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 1rem;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.25rem;
+    }
+
+    /* ===== IMAGE BREAK ===== */
+    .image-break {
+      width: 100%;
+      height: 50vh;
+      min-height: 300px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .image-break img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(20%) contrast(1.05);
+    }
+
+    .image-break::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, var(--dark) 0%, transparent 15%, transparent 85%, var(--black) 100%);
+    }
+
+    /* ===== SERVICES ===== */
+    #services {
+      background: var(--black);
+      border-top: 1px solid rgba(201,168,76,0.1);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .service-card {
+      background: var(--dark-card);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(to right, var(--gold), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: 2;
+    }
+
+    .service-card:hover::before {
+      opacity: 1;
+    }
+
+    .service-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(40%) brightness(0.7);
+      transition: filter 0.4s;
+    }
+
+    .service-card:hover .service-img {
+      filter: grayscale(20%) brightness(0.85);
+    }
+
+    .service-body {
+      padding: 2rem;
+    }
+
+    .service-number {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 3rem;
+      color: var(--dark-accent);
+      line-height: 1;
+      margin-bottom: 1rem;
+      transition: color 0.3s;
+    }
+
+    .service-card:hover .service-number {
+      color: var(--gold-dim);
+    }
+
+    .service-card h3 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.75rem;
+    }
+
+    .service-card p {
+      color: var(--white-soft);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* ===== ATHLETES ===== */
+    #athletes {
+      background: var(--dark);
+      border-top: 1px solid rgba(201,168,76,0.1);
+    }
+
+    .athletes-intro {
+      color: var(--white-soft);
+      font-size: 1.05rem;
+      max-width: 600px;
+      margin-bottom: 3rem;
+    }
+
+    .athlete-marquee {
+      overflow: hidden;
+      padding: 2rem 0;
+      border-top: 1px solid var(--dark-accent);
+      border-bottom: 1px solid var(--dark-accent);
+    }
+
+    .athlete-track {
+      display: flex;
+      gap: 3rem;
+      animation: marquee 30s linear infinite;
+      width: max-content;
+    }
+
+    .athlete-name {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--white-soft);
+      white-space: nowrap;
+      opacity: 0.5;
+      transition: opacity 0.3s;
+    }
+
+    .athlete-name.highlight {
+      color: var(--gold);
+      font-weight: 600;
+      opacity: 1;
+    }
+
+    .athlete-name::after {
+      content: '\00b7';
+      margin-left: 3rem;
+      color: var(--gold-dim);
+    }
+
+    .featured-callout {
+      margin-top: 3rem;
+      padding: 2.5rem;
+      background: linear-gradient(135deg, var(--blue-deep), var(--dark-card));
+      border-left: 4px solid var(--gold);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .featured-callout-text h3 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.75rem;
+    }
+
+    .featured-callout-text p {
+      color: var(--white-soft);
+      font-size: 1rem;
+    }
+
+    .featured-callout-img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      filter: grayscale(20%) contrast(1.05);
+    }
+
+    /* ===== CONTACT ===== */
+    #contact {
+      background: var(--black);
+      border-top: 1px solid rgba(201,168,76,0.1);
+      position: relative;
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .contact-bg {
+      position: relative;
+      width: 100%;
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .contact-bg-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(40%) brightness(0.3);
+    }
+
+    .contact-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(10,10,10,0.6), rgba(10,10,10,0.9));
+    }
+
+    .contact-content {
+      position: relative;
+      z-index: 2;
+      padding: 6rem 2rem;
+    }
+
+    .contact-email {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .contact-email a {
+      color: var(--white);
+      text-decoration: none;
+      border-bottom: 3px solid var(--gold);
+      padding-bottom: 0.15em;
+      transition: color 0.3s, border-color 0.3s;
+    }
+
+    .contact-email a:hover {
+      color: var(--gold);
+    }
+
+    .contact-location {
+      margin-top: 1.5rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--white-soft);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--white-soft);
+      opacity: 0.4;
+      letter-spacing: 0.1em;
+      border-top: 1px solid rgba(201,168,76,0.05);
+    }
+
+    .photo-credit {
+      font-size: 0.65rem;
+      color: var(--white-soft);
+      opacity: 0.3;
+      margin-top: 0.5rem;
+    }
+
+    .photo-credit a {
+      color: var(--white-soft);
+      text-decoration: underline;
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.25rem; }
+      .nav-links { gap: 1.25rem; }
+      .nav-links a { font-size: 0.75rem; }
+      .hero { padding: 0 1.25rem 4rem; }
+      .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
+      section { padding: 4rem 1.25rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .athlete-name { font-size: 1.1rem; }
+      .featured-callout { grid-template-columns: 1fr; padding: 1.5rem; }
+      .image-break { height: 35vh; }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 2.5rem; }
+      .stat-number { font-size: 1.5rem; }
+      .hero-stats { gap: 1rem; }
+      .service-img { height: 140px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">Rainos<span>Hayes</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#athletes">Athletes</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <p class="hero-tag">North Shore, O'ahu</p>
+      <h1>Rainos<br><span class="accent">Hayes</span></h1>
+      <p class="hero-sub">Elite surf coaching rooted in three decades on the North Shore. From world champions to the next generation.</p>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-number">30+</div>
+          <div class="stat-label">Years Coaching</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">3x</div>
+          <div class="stat-label">ISA Team Gold</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Pro Athletes Coached</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p class="section-tag">About</p>
+          <h2 class="section-title">Raised at Sunset.<br>Built for this.</h2>
+          <p>Rainos Hayes grew up at Sunset Point on the North Shore of O'ahu and competed on both the WQS and World Championship Tour before finding his calling as a coach. For over thirty years he has shaped some of competitive surfing's most accomplished athletes, from groms to world title contenders.</p>
+          <p>He led the <strong>Hawaii Surf Team</strong> from 1996 to 2018, guiding the program to podium finishes every year of competition and gold medals in 2005, 2012, and 2014. As Billabong Hawai'i Team Manager, he developed junior and professional talent across the North Shore and around the world.</p>
+          <p>In 2024, Rainos took on the role of head coach for <strong>Italo Ferreira</strong>, the 2019 World Champion and Olympic gold medalist. Under his guidance, Italo won the Tahiti Pro at Teahupo'o and finished the season as world runner-up. Heading into 2025, Rainos coaches multiple athletes on the Championship Tour.</p>
+        </div>
+        <div class="reveal">
+          <img 
+            src="https://images.unsplash.com/photo-1455729552865-3658a5d39692?w=800&q=80&auto=format&fit=crop" 
+            alt="Surfer on the North Shore at sunset — replace with Rainos portrait" 
+            class="about-image"
+          >
+          <ul class="credential-list">
+            <li>
+              <div class="cred-title">Head Coach, Hawaii Surf Team</div>
+              22 years leading Hawai'i's national team program (1996–2018)
+            </li>
+            <li>
+              <div class="cred-title">Billabong Hawai'i Team Manager</div>
+              Two decades developing junior and professional athletes
+            </li>
+            <li>
+              <div class="cred-title">Coach to Italo Ferreira</div>
+              2024 Tahiti Pro champion; 2024 WSL Finals runner-up
+            </li>
+            <li>
+              <div class="cred-title">Former Professional Surfer</div>
+              WQS and World Championship Tour competitor
+            </li>
+            <li>
+              <div class="cred-title">ISA World Championships</div>
+              Head coach for Hawai'i at multiple ISA World Junior events
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMAGE BREAK -->
+  <div class="image-break">
+    <img 
+      src="https://images.unsplash.com/photo-1505459668311-8dfac7952bf0?w=1920&q=80&auto=format&fit=crop" 
+      alt="Aerial view of ocean waves breaking"
+    >
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="section-inner reveal">
+      <p class="section-tag">Services</p>
+      <h2 class="section-title">What we offer</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1502933691298-84fc14542831?w=800&q=80&auto=format&fit=crop" alt="Surfer riding a wave" class="service-img">
+          <div class="service-body">
+            <div class="service-number">01</div>
+            <h3>Private 1-on-1 Coaching</h3>
+            <p>Personalized sessions on the North Shore tailored to your level, goals, and the conditions of the day. Wave selection, positioning, technique, and competitive strategy from the water and the beach.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1531722569936-825d3dd91b15?w=800&q=80&auto=format&fit=crop" alt="Surfers in the ocean lineup" class="service-img">
+          <div class="service-body">
+            <div class="service-number">02</div>
+            <h3>Group Clinics &amp; Camps</h3>
+            <p>Multi-day intensives for small groups. Train at world-class breaks under direct coaching, with structured sessions covering ocean awareness, heat strategy, and high-performance fundamentals.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <img src="https://images.pexels.com/photos/1654485/pexels-photo-1654485.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Surfer riding inside a barrel wave" class="service-img">
+          <div class="service-body">
+            <div class="service-number">03</div>
+            <h3>Video Analysis</h3>
+            <p>Detailed breakdown of your sessions and competition heats. Frame-by-frame review of positioning, timing, wave selection, and maneuver execution with actionable feedback.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <img src="https://images.pexels.com/photos/1298684/pexels-photo-1298684.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Powerful barrel wave breaking" class="service-img">
+          <div class="service-body">
+            <div class="service-number">04</div>
+            <h3>Competition Prep</h3>
+            <p>Pro-level preparation for competitive surfers. Heat strategy, priority management, mental preparation, equipment selection, and venue-specific game plans built from decades of Championship Tour experience.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ATHLETES -->
+  <section id="athletes">
+    <div class="section-inner">
+      <div class="reveal">
+        <p class="section-tag">Athletes</p>
+        <h2 class="section-title">Three decades of<br>world-class talent</h2>
+        <p class="athletes-intro">From first-time World Junior Champions to Olympic gold medalists, Rainos has coached athletes across every level of competitive surfing.</p>
+      </div>
+
+      <div class="athlete-marquee">
+        <div class="athlete-track">
+          <span class="athlete-name highlight">Italo Ferreira</span>
+          <span class="athlete-name">Seth Moniz</span>
+          <span class="athlete-name">Rio Waida</span>
+          <span class="athlete-name">Courtney Conlogue</span>
+          <span class="athlete-name">Gabriela Bryan</span>
+          <span class="athlete-name">Malia Manuel</span>
+          <span class="athlete-name">Finn McGill</span>
+          <span class="athlete-name">Josh Moniz</span>
+          <span class="athlete-name">Andy Irons</span>
+          <span class="athlete-name">Joel Centeio</span>
+          <span class="athlete-name">Pancho Sullivan</span>
+          <span class="athlete-name">Keanu Asing</span>
+          <span class="athlete-name">Zeke Lau</span>
+          <span class="athlete-name">Albee Layer</span>
+          <span class="athlete-name highlight">Italo Ferreira</span>
+          <span class="athlete-name">Seth Moniz</span>
+          <span class="athlete-name">Rio Waida</span>
+          <span class="athlete-name">Courtney Conlogue</span>
+          <span class="athlete-name">Gabriela Bryan</span>
+          <span class="athlete-name">Malia Manuel</span>
+          <span class="athlete-name">Finn McGill</span>
+          <span class="athlete-name">Josh Moniz</span>
+          <span class="athlete-name">Andy Irons</span>
+          <span class="athlete-name">Joel Centeio</span>
+          <span class="athlete-name">Pancho Sullivan</span>
+          <span class="athlete-name">Keanu Asing</span>
+          <span class="athlete-name">Zeke Lau</span>
+          <span class="athlete-name">Albee Layer</span>
+        </div>
+      </div>
+
+      <div class="featured-callout reveal">
+        <div class="featured-callout-text">
+          <h3>2024–2025 with Italo Ferreira</h3>
+          <p>As head coach to the 2019 World Champion and Olympic gold medalist, Rainos guided Italo to victory at the 2024 Tahiti Pro at Teahupo'o and a runner-up finish at the WSL Finals. In 2025, multiple athletes from the Rainos Hayes coaching camp are competing on the Championship Tour.</p>
+        </div>
+        <img 
+          src="https://images.pexels.com/photos/1654485/pexels-photo-1654485.jpeg?auto=compress&cs=tinysrgb&w=1200" 
+          alt="Surfer in barrel wave" 
+          class="featured-callout-img"
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-bg">
+      <img 
+        src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80&auto=format&fit=crop" 
+        alt="Tropical beach at sunset" 
+        class="contact-bg-img"
+      >
+      <div class="contact-content reveal">
+        <p class="section-tag">Get in touch</p>
+        <h2 class="section-title">Ready to train?</h2>
+        <div class="contact-email">
+          <a href="/cdn-cgi/l/email-protection#e391828a8d8c90a391828a8d8c908b829a8690cd808c8e"><span class="__cf_email__" data-cfemail="e694878f888995a694878f8889958e879f8395c885898b">[email&#160;protected]</span></a>
+        </div>
+        <p class="contact-location">North Shore, O'ahu, Hawai'i</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    &copy; 2026 Rainos Hayes. All rights reserved.
+    <div class="photo-credit">Stock photography via <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a> and <a href="https://pexels.com" target="_blank" rel="noopener">Pexels</a> — replace with original photos</div>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) =
