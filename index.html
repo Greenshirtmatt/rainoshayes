@@ -124,7 +124,7 @@
       background-image:
         linear-gradient(175deg, rgba(10,10,10,0) 0%, rgba(10,10,10,0.2) 30%, rgba(10,10,10,0.85) 65%, rgba(10,10,10,0.97) 80%),
         linear-gradient(to right, rgba(10,10,10,0.5), rgba(10,10,10,0.2)),
-        url('https://images.unsplash.com/photo-1502680390548-bdbac40e4a9f?w=1920&q=80&auto=format&fit=crop');
+        url('https://images.unsplash.com/photo-1509914398892-963f53e6e2f1?w=1920&q=80&auto=format&fit=crop');
       background-size: cover;
       background-position: center 30%;
       background-repeat: no-repeat;
@@ -847,7 +847,7 @@
         <p class="section-tag">Get in touch</p>
         <h2 class="section-title">Ready to train?</h2>
         <div class="contact-email">
-          <a href="/cdn-cgi/l/email-protection#e391828a8d8c90a391828a8d8c908b829a8690cd808c8e"><span class="__cf_email__" data-cfemail="e694878f888995a694878f8889958e879f8395c885898b">[email&#160;protected]</span></a>
+          <a href="mailto:rainos@rainoshayes.com">rainos@rainoshayes.com</a>
         </div>
         <p class="contact-location">North Shore, O'ahu, Hawai'i</p>
       </div>
@@ -860,6 +860,17 @@
     <div class="photo-credit">Stock photography via <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a> and <a href="https://pexels.com" target="_blank" rel="noopener">Pexels</a> — replace with original photos</div>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
     const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) =
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
