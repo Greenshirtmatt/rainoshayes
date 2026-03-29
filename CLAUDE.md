@@ -27,11 +27,19 @@ No build, lint, or test commands exist. Changes are made directly to `deploy/ind
 
 ## Deployment
 
-- **Host**: Netlify, connected to the GitHub repo (`Greenshirtmatt/rainoshayes`)
+- **Host**: Netlify
 - **Domain**: rainoshayes.com
 - **Publish directory**: `deploy/`
-- **Deploy trigger**: Push to `master` branch → Netlify auto-deploys
-- **To deploy**: Commit changes, then `git push origin master`
+- **Current deploy method**: Manual deploy (drag & drop the `deploy/` folder in Netlify dashboard)
+- **GitHub auto-deploy**: Not yet connected — see notes below
+
+### Reconnecting GitHub to Netlify (when ready)
+
+1. Make the repo public first (Settings → Danger Zone → Change visibility)
+2. In Netlify: Site settings → Build & deploy → Link repository
+3. Set **Branch**: `master`, **Publish directory**: `deploy/`, **Build command**: leave blank
+4. Ensure all Git contributors (including co-authors in commits) are linked in Netlify's Git contributor settings, or use a Pro plan
+5. Test with a trivial push before relying on it
 
 ## Key Context
 
