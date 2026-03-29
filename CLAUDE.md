@@ -18,12 +18,20 @@ Static single-page website for Rainos Hayes, an elite surf coach on the North Sh
 
 ```bash
 # Preview locally — just open the file or serve it
-open index.html
+open deploy/index.html
 # or
-python3 -m http.server 8000
+cd deploy && python3 -m http.server 8000
 ```
 
-No build, lint, or test commands exist. Changes are made directly to `index.html`.
+No build, lint, or test commands exist. Changes are made directly to `deploy/index.html`.
+
+## Deployment
+
+- **Host**: Netlify, connected to the GitHub repo (`Greenshirtmatt/rainoshayes`)
+- **Domain**: rainoshayes.com
+- **Publish directory**: `deploy/`
+- **Deploy trigger**: Push to `master` branch → Netlify auto-deploys
+- **To deploy**: Commit changes, then `git push origin master`
 
 ## Key Context
 
