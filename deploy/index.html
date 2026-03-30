@@ -1033,9 +1033,7 @@
                     <p class="section-tag">Get in touch</p>
                     <h2 class="section-title">Ready to train?</h2>
                     <div class="contact-email">
-                        <a href="mailto:rainoshayes@gmail.com"
-                            >rainoshayes@gmail.com</a
-                        >
+                        <a id="contact-link" href="#" rel="nofollow"></a>
                     </div>
                     <p class="contact-location">North Shore, O'ahu, Hawai'i</p>
                 </div>
@@ -1064,6 +1062,14 @@
         </footer>
 
         <script>
+            (function () {
+                var u = "rainoshayes";
+                var d = "gmail.com";
+                var el = document.getElementById("contact-link");
+                el.href = "mai" + "lto:" + u + "@" + d;
+                el.textContent = u + "@" + d;
+            })();
+
             const reveals = document.querySelectorAll(".reveal");
             const observer = new IntersectionObserver(
                 (entries) => {
