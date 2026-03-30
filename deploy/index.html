@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
         <title>Rainos Hayes — Elite Surf Coaching, North Shore O'ahu</title>
         <meta
             name="description"
@@ -74,7 +74,7 @@
                 top: 0;
                 width: 100%;
                 z-index: 100;
-                padding: 1.25rem 2rem;
+                padding: calc(1.25rem + env(safe-area-inset-top, 0px)) 2rem 1.25rem;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
@@ -685,7 +685,7 @@
             /* ===== RESPONSIVE ===== */
             @media (max-width: 768px) {
                 nav {
-                    padding: 1rem 1.25rem;
+                    padding: calc(1rem + env(safe-area-inset-top, 0px)) 1.25rem 1rem;
                 }
                 .nav-links {
                     gap: 1.25rem;
