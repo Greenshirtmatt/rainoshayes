@@ -7,3 +7,6 @@ Thumbs.db
 .env.local
 node_modules/
 .claude/
+
+# Source photography (not deployed; deploy/images/ holds web-ready versions)
+photos/
