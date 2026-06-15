@@ -656,6 +656,20 @@
                 color: var(--white-soft);
             }
 
+            .contact-social {
+                display: inline-flex;
+                margin-top: 1.75rem;
+                color: var(--white-soft);
+                transition:
+                    color 0.3s,
+                    transform 0.3s;
+            }
+
+            .contact-social:hover {
+                color: var(--gold);
+                transform: translateY(-2px);
+            }
+
             /* ===== FOOTER ===== */
             footer {
                 padding: 2rem;
@@ -1139,6 +1153,29 @@
                         <a id="contact-link" href="#" rel="nofollow"></a>
                     </div>
                     <p class="contact-location">North Shore, O'ahu, Hawai'i</p>
+                    <a
+                        href="https://www.instagram.com/rainoshayes/"
+                        class="contact-social"
+                        target="_blank"
+                        rel="noopener"
+                        aria-label="Follow Rainos Hayes on Instagram"
+                    >
+                        <svg
+                            viewBox="0 0 24 24"
+                            width="28"
+                            height="28"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                        >
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                            <circle cx="12" cy="12" r="4" />
+                            <circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none" />
+                        </svg>
+                    </a>
                 </div>
             </div>
         </section>
