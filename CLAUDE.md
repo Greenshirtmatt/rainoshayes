@@ -8,8 +8,8 @@ Static single-page website for Rainos Hayes, an elite surf coach on the North Sh
 
 ## Architecture
 
-- **Single file**: Everything lives in `index.html` (~860 lines) — inline CSS in `<style>`, minimal JS at the bottom
-- **No build tools, no framework, no package manager** — vanilla HTML/CSS/JS
+- **Two pages**: `index.html` (~860 lines, the single-page marketing site) and `gallery.html` (photo gallery with a vanilla lightbox). Each is self-contained — inline CSS in `<style>`, minimal JS at the bottom. Shared nav/footer/`:root` token styles are duplicated in both (keep them in sync).
+- **No build tools, no framework, no package manager** — vanilla HTML/CSS/JS. Exception: `scripts/build-gallery.sh` is a local, regenerable image pipeline (ffmpeg→cwebp) that turns `photos/*.JPG` into optimized WebP thumb/large renditions under `deploy/images/gallery/` plus a `<figure>` markup snippet. Outputs are committed; the script never runs on Netlify.
 - **External dependencies**: Google Fonts (Oswald + Source Sans 3), stock images from Unsplash/Pexels CDNs
 - **Design system**: CSS custom properties in `:root` for colors, fonts. Dark aesthetic with gold (#c9a84c) accents
 - **Responsive breakpoints**: 768px and 480px

@@ -1,0 +1,995 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+        <title>Gallery — Rainos Hayes, North Shore Surf Coaching</title>
+        <meta
+            name="description"
+            content="A photo gallery from three decades of surf coaching on the North Shore of O'ahu — from groms and teams to elite professionals, with Rainos Hayes."
+        />
+
+        <!-- Open Graph / iMessage / Facebook / LinkedIn -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://rainoshayes.com/gallery.html" />
+        <meta property="og:title" content="Gallery — Rainos Hayes, North Shore Surf Coaching" />
+        <meta
+            property="og:description"
+            content="Three decades of surf coaching on the North Shore — from groms and teams to elite professionals."
+        />
+        <meta property="og:image" content="https://rainoshayes.com/images/rainos-hero.jpg" />
+        <meta property="og:image:alt" content="Rainos Hayes on the North Shore of O'ahu" />
+
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Gallery — Rainos Hayes, North Shore Surf Coaching" />
+        <meta
+            name="twitter:description"
+            content="Three decades of surf coaching on the North Shore — from groms and teams to elite professionals."
+        />
+        <meta name="twitter:image" content="https://rainoshayes.com/images/rainos-hero.jpg" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap"
+            rel="stylesheet"
+        />
+
+        <style>
+            :root {
+                --black: #0a0a0a;
+                --dark: #111111;
+                --dark-card: #161616;
+                --dark-accent: #1e1e1e;
+                --white: #f0ece6;
+                --white-soft: #c8c2b8;
+                --gold: #c9a84c;
+                --gold-dim: #8a7234;
+                --blue-deep: #1a3a4a;
+                --ocean: #2a6478;
+                --font-display: "Oswald", sans-serif;
+                --font-body: "Source Sans 3", sans-serif;
+            }
+
+            *,
+            *::before,
+            *::after {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            html {
+                scroll-behavior: smooth;
+                font-size: 16px;
+            }
+
+            body {
+                background: var(--black);
+                color: var(--white);
+                font-family: var(--font-body);
+                font-weight: 300;
+                line-height: 1.6;
+                overflow-x: hidden;
+                -webkit-font-smoothing: antialiased;
+            }
+
+            /* ===== GRAIN OVERLAY ===== */
+            body::after {
+                content: "";
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+                pointer-events: none;
+                z-index: 9999;
+            }
+
+            /* ===== NAV (shared with index.html) ===== */
+            nav {
+                position: fixed;
+                top: 0;
+                width: 100%;
+                z-index: 100;
+                padding: calc(1.25rem + env(safe-area-inset-top, 0px)) 2rem 1.25rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background: linear-gradient(
+                    to bottom,
+                    rgba(10, 10, 10, 0.95),
+                    transparent
+                );
+                transition: background 0.4s;
+            }
+
+            .nav-logo {
+                font-family: var(--font-display);
+                font-weight: 700;
+                font-size: 1.4rem;
+                letter-spacing: 0.15em;
+                text-transform: uppercase;
+                color: var(--white);
+                text-decoration: none;
+            }
+
+            .nav-logo span {
+                color: var(--gold);
+            }
+
+            .nav-links {
+                display: flex;
+                gap: 2rem;
+                list-style: none;
+            }
+
+            .nav-links a {
+                color: var(--white-soft);
+                text-decoration: none;
+                font-family: var(--font-display);
+                font-weight: 400;
+                font-size: 0.85rem;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                transition: color 0.3s;
+            }
+
+            .nav-links a:hover,
+            .nav-links a.active {
+                color: var(--gold);
+            }
+
+            /* ===== GALLERY ===== */
+            .gallery {
+                max-width: 1400px;
+                margin: 0 auto;
+                padding: calc(7rem + env(safe-area-inset-top, 0px)) 1.5rem 5rem;
+            }
+
+            .section-tag {
+                font-family: var(--font-display);
+                font-weight: 400;
+                font-size: 0.75rem;
+                letter-spacing: 0.3em;
+                text-transform: uppercase;
+                color: var(--gold);
+                margin-bottom: 1rem;
+            }
+
+            .section-title {
+                font-family: var(--font-display);
+                font-weight: 600;
+                font-size: clamp(2rem, 4vw, 3rem);
+                text-transform: uppercase;
+                letter-spacing: -0.01em;
+                line-height: 1.1;
+            }
+
+            .gallery-intro {
+                max-width: 38rem;
+                color: var(--white-soft);
+                margin: 1.25rem 0 3rem;
+                font-size: 1.05rem;
+            }
+
+            /* Masonry via CSS columns — handles mixed orientations cleanly. */
+            .grid {
+                column-count: 4;
+                column-gap: 14px;
+            }
+
+            figure.shot {
+                break-inside: avoid;
+                margin: 0 0 14px;
+            }
+
+            .shot-link {
+                display: block;
+                position: relative;
+                overflow: hidden;
+                border-radius: 2px;
+                background: var(--dark-card);
+                cursor: zoom-in;
+            }
+
+            .shot-link img {
+                display: block;
+                width: 100%;
+                height: auto;
+                transition:
+                    transform 0.5s ease,
+                    opacity 0.5s ease;
+            }
+
+            .shot-link::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                box-shadow: inset 0 0 0 1px rgba(201, 168, 76, 0);
+                transition: box-shadow 0.4s ease;
+                pointer-events: none;
+            }
+
+            .shot-link:hover img {
+                transform: scale(1.04);
+                opacity: 0.92;
+            }
+
+            .shot-link:hover::after {
+                box-shadow: inset 0 0 0 1px rgba(201, 168, 76, 0.35);
+            }
+
+            .reveal {
+                opacity: 0;
+                transform: translateY(40px);
+                transition:
+                    opacity 0.7s ease,
+                    transform 0.7s ease;
+            }
+
+            .reveal.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            /* ===== LIGHTBOX ===== */
+            .lightbox {
+                position: fixed;
+                inset: 0;
+                z-index: 1000;
+                display: none;
+                align-items: center;
+                justify-content: center;
+                background: rgba(8, 8, 8, 0.95);
+                backdrop-filter: blur(4px);
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+
+            .lightbox.open {
+                display: flex;
+                opacity: 1;
+            }
+
+            .lightbox img {
+                max-width: 92vw;
+                max-height: 86vh;
+                object-fit: contain;
+                border-radius: 2px;
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+            }
+
+            .lb-btn {
+                position: absolute;
+                background: none;
+                border: none;
+                color: var(--white);
+                font-family: var(--font-display);
+                cursor: pointer;
+                opacity: 0.6;
+                transition: opacity 0.25s ease;
+                user-select: none;
+                -webkit-tap-highlight-color: transparent;
+            }
+
+            .lb-btn:hover {
+                opacity: 1;
+                color: var(--gold);
+            }
+
+            .lb-close {
+                top: 1.2rem;
+                right: 1.5rem;
+                font-size: 2.4rem;
+                line-height: 1;
+            }
+
+            .lb-prev,
+            .lb-next {
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 3rem;
+                line-height: 1;
+                padding: 1rem;
+            }
+
+            .lb-prev {
+                left: 0.5rem;
+            }
+
+            .lb-next {
+                right: 0.5rem;
+            }
+
+            .lb-count {
+                position: absolute;
+                bottom: 1.2rem;
+                left: 50%;
+                transform: translateX(-50%);
+                font-family: var(--font-display);
+                font-size: 0.8rem;
+                letter-spacing: 0.2em;
+                color: var(--white-soft);
+                opacity: 0.7;
+            }
+
+            /* ===== FOOTER (shared with index.html) ===== */
+            footer {
+                padding: 2rem;
+                text-align: center;
+                font-size: 0.75rem;
+                color: var(--white-soft);
+                opacity: 0.4;
+                letter-spacing: 0.1em;
+                border-top: 1px solid rgba(201, 168, 76, 0.05);
+            }
+
+            footer a {
+                color: var(--white-soft);
+                text-decoration: underline;
+            }
+
+            /* ===== RESPONSIVE ===== */
+            @media (max-width: 768px) {
+                nav {
+                    padding: calc(1rem + env(safe-area-inset-top, 0px)) 1.25rem 1rem;
+                }
+                .nav-logo {
+                    font-size: 1.1rem;
+                    letter-spacing: 0.1em;
+                }
+                .nav-links {
+                    gap: 1rem;
+                }
+                .nav-links a {
+                    font-size: 0.7rem;
+                    letter-spacing: 0.08em;
+                }
+                .gallery {
+                    padding-left: 1.25rem;
+                    padding-right: 1.25rem;
+                }
+                .grid {
+                    column-count: 3;
+                    column-gap: 10px;
+                }
+                figure.shot {
+                    margin-bottom: 10px;
+                }
+                .lb-prev,
+                .lb-next {
+                    font-size: 2.2rem;
+                }
+            }
+
+            @media (max-width: 480px) {
+                nav {
+                    padding: calc(0.75rem + env(safe-area-inset-top, 0px)) 0.75rem 0.75rem;
+                }
+                .nav-logo {
+                    font-size: 0.95rem;
+                    letter-spacing: 0.06em;
+                }
+                .nav-links {
+                    gap: 0.6rem;
+                }
+                .nav-links a {
+                    font-size: 0.6rem;
+                    letter-spacing: 0.05em;
+                }
+                .grid {
+                    column-count: 2;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- NAV -->
+        <nav>
+            <a href="index.html" class="nav-logo">Rainos<span>Hayes</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#athletes">Athletes</a></li>
+                <li><a href="gallery.html" class="active">Gallery</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- GALLERY -->
+        <main class="gallery">
+            <div class="section-tag reveal">Portfolio</div>
+            <h2 class="section-title reveal">In the Water</h2>
+            <p class="gallery-intro reveal">
+                Three decades on the North Shore — from first-time groms and
+                visiting teams to the world's elite. A look at the sessions,
+                the coaching, and the surfers.
+            </p>
+
+            <div class="grid">
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g01.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g01.webp"
+                                width="800" height="540"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g02.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g02.webp"
+                                width="800" height="534"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g03.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g03.webp"
+                                width="800" height="532"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g04.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g04.webp"
+                                width="800" height="534"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g05.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g05.webp"
+                                width="800" height="534"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g06.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g06.webp"
+                                width="800" height="534"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g07.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g07.webp"
+                                width="800" height="534"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g08.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g08.webp"
+                                width="696" height="800"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g09.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g09.webp"
+                                width="800" height="672"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g10.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g10.webp"
+                                width="800" height="534"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g11.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g11.webp"
+                                width="600" height="800"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g12.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g12.webp"
+                                width="600" height="800"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g13.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g13.webp"
+                                width="600" height="800"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g14.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g14.webp"
+                                width="450" height="800"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g15.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g15.webp"
+                                width="640" height="640"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g16.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g16.webp"
+                                width="600" height="800"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g17.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g17.webp"
+                                width="532" height="786"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g18.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g18.webp"
+                                width="800" height="600"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g19.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g19.webp"
+                                width="800" height="600"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g20.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g20.webp"
+                                width="800" height="600"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g21.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g21.webp"
+                                width="600" height="800"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g22.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g22.webp"
+                                width="800" height="600"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g23.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g23.webp"
+                                width="800" height="600"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g24.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g24.webp"
+                                width="800" height="600"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g25.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g25.webp"
+                                width="800" height="600"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g26.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g26.webp"
+                                width="600" height="800"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g27.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g27.webp"
+                                width="800" height="532"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g28.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g28.webp"
+                                width="800" height="800"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g29.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g29.webp"
+                                width="800" height="534"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g30.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g30.webp"
+                                width="600" height="800"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g31.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g31.webp"
+                                width="600" height="800"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g32.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g32.webp"
+                                width="800" height="534"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g33.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g33.webp"
+                                width="800" height="600"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g34.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g34.webp"
+                                width="800" height="600"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g35.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g35.webp"
+                                width="800" height="534"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g36.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g36.webp"
+                                width="800" height="600"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g37.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g37.webp"
+                                width="800" height="600"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g38.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g38.webp"
+                                width="600" height="800"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g39.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g39.webp"
+                                width="600" height="800"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g40.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g40.webp"
+                                width="600" height="800"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g41.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g41.webp"
+                                width="600" height="800"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g42.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g42.webp"
+                                width="600" height="800"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g43.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g43.webp"
+                                width="600" height="800"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g44.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g44.webp"
+                                width="600" height="800"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g45.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g45.webp"
+                                width="534" height="800"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g46.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g46.webp"
+                                width="800" height="534"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g47.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g47.webp"
+                                width="750" height="750"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g48.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g48.webp"
+                                width="800" height="532"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g49.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g49.webp"
+                                width="800" height="534"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g50.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g50.webp"
+                                width="800" height="800"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g51.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g51.webp"
+                                width="800" height="600"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g52.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g52.webp"
+                                width="600" height="800"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+                    <figure class="shot reveal">
+                        <a href="images/gallery/large/g53.webp" class="shot-link">
+                            <img
+                                src="images/gallery/thumb/g53.webp"
+                                width="600" height="800"
+                                loading="lazy" decoding="async"
+                                alt="Rainos Hayes surf coaching" />
+                        </a>
+                    </figure>
+            </div>
+        </main>
+
+        <!-- LIGHTBOX -->
+        <div class="lightbox" id="lightbox" aria-hidden="true">
+            <button class="lb-btn lb-close" id="lbClose" aria-label="Close">&times;</button>
+            <button class="lb-btn lb-prev" id="lbPrev" aria-label="Previous">&#8249;</button>
+            <img id="lbImg" src="" alt="Rainos Hayes surf coaching" />
+            <button class="lb-btn lb-next" id="lbNext" aria-label="Next">&#8250;</button>
+            <div class="lb-count" id="lbCount"></div>
+        </div>
+
+        <footer>
+            &copy; 2026 Rainos Hayes. All rights reserved. &nbsp;
+            <a href="index.html">Home</a>
+        </footer>
+
+        <script>
+            // Scroll-reveal (same pattern as index.html)
+            const reveals = document.querySelectorAll(".reveal");
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("visible");
+                        }
+                    });
+                },
+                { threshold: 0.1 },
+            );
+            reveals.forEach((el) => observer.observe(el));
+
+            // Lightweight lightbox — no dependencies.
+            const links = Array.from(document.querySelectorAll(".shot-link"));
+            const lb = document.getElementById("lightbox");
+            const lbImg = document.getElementById("lbImg");
+            const lbCount = document.getElementById("lbCount");
+            let idx = -1;
+
+            function preload(src) {
+                if (src) new Image().src = src;
+            }
+
+            function show(i) {
+                idx = (i + links.length) % links.length;
+                const src = links[idx].getAttribute("href");
+                lbImg.src = src;
+                lbCount.textContent = idx + 1 + " / " + links.length;
+                // Preload neighbors for snappy nav.
+                preload(links[(idx + 1) % links.length].getAttribute("href"));
+                preload(
+                    links[(idx - 1 + links.length) % links.length].getAttribute("href"),
+                );
+            }
+
+            function open(i) {
+                show(i);
+                lb.classList.add("open");
+                lb.setAttribute("aria-hidden", "false");
+                document.body.style.overflow = "hidden";
+            }
+
+            function close() {
+                lb.classList.remove("open");
+                lb.setAttribute("aria-hidden", "true");
+                document.body.style.overflow = "";
+                lbImg.src = "";
+            }
+
+            links.forEach((a, i) =>
+                a.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    open(i);
+                }),
+            );
+
+            document
+                .getElementById("lbClose")
+                .addEventListener("click", close);
+            document
+                .getElementById("lbNext")
+                .addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    show(idx + 1);
+                });
+            document
+                .getElementById("lbPrev")
+                .addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    show(idx - 1);
+                });
+
+            // Close when clicking the backdrop (but not the image/buttons).
+            lb.addEventListener("click", (e) => {
+                if (e.target === lb) close();
+            });
+
+            document.addEventListener("keydown", (e) => {
+                if (!lb.classList.contains("open")) return;
+                if (e.key === "Escape") close();
+                else if (e.key === "ArrowRight") show(idx + 1);
+                else if (e.key === "ArrowLeft") show(idx - 1);
+            });
+        </script>
+    </body>
+</html>

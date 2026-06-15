@@ -10,3 +10,6 @@ node_modules/
 
 # Source photography (not deployed; deploy/images/ holds web-ready versions)
 photos/
+
+# Regenerable build artifact (markup is already embedded in deploy/gallery.html)
+scripts/gallery-figures.html
