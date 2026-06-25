@@ -103,7 +103,20 @@
                     rgba(10, 10, 10, 0.95),
                     transparent
                 );
-                transition: background 0.4s;
+                transition:
+                    background 0.4s,
+                    padding 0.4s,
+                    border-color 0.4s;
+                border-bottom: 1px solid transparent;
+            }
+
+            nav.scrolled {
+                background: rgba(10, 10, 10, 0.82);
+                backdrop-filter: blur(14px);
+                -webkit-backdrop-filter: blur(14px);
+                border-bottom: 1px solid rgba(201, 168, 76, 0.14);
+                padding-top: calc(0.9rem + env(safe-area-inset-top, 0px));
+                padding-bottom: 0.9rem;
             }
 
             .nav-logo {
@@ -382,6 +395,31 @@
                 }
                 .grid {
                     column-count: 2;
+                }
+            }
+
+            /* ===== FOCUS & ACCESSIBILITY ===== */
+            a:focus-visible,
+            button:focus-visible {
+                outline: 2px solid var(--gold);
+                outline-offset: 4px;
+                border-radius: 2px;
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                html {
+                    scroll-behavior: auto;
+                }
+                *,
+                *::before,
+                *::after {
+                    animation-duration: 0.01ms !important;
+                    animation-iteration-count: 1 !important;
+                    transition-duration: 0.01ms !important;
+                }
+                .reveal {
+                    opacity: 1 !important;
+                    transform: none !important;
                 }
             }
         </style>
@@ -918,6 +956,13 @@
                 { threshold: 0.1 },
             );
             reveals.forEach((el) => observer.observe(el));
+
+            // Nav resolves to a solid state on scroll (same as index.html).
+            const navEl = document.querySelector("nav");
+            const onScroll = () =>
+                navEl.classList.toggle("scrolled", window.scrollY > 40);
+            onScroll();
+            window.addEventListener("scroll", onScroll, { passive: true });
 
             // Lightweight lightbox — no dependencies.
             const links = Array.from(document.querySelectorAll(".shot-link"));
