@@ -430,6 +430,124 @@
                 margin-bottom: 0.25rem;
             }
 
+            /* ===== IN THE PRESS ===== */
+            .press {
+                background:
+                    linear-gradient(
+                        180deg,
+                        var(--black) 0%,
+                        var(--dark) 100%
+                    );
+                border-top: 1px solid rgba(201, 168, 76, 0.1);
+                border-bottom: 1px solid rgba(201, 168, 76, 0.1);
+            }
+
+            .press-grid {
+                display: grid;
+                grid-template-columns: 0.85fr 1.15fr;
+                gap: 4rem;
+                align-items: center;
+            }
+
+            .press-figure {
+                margin: 0;
+            }
+
+            .press-cover {
+                display: block;
+                width: 100%;
+                height: auto;
+                border: 1px solid var(--gold-dim);
+                box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+                filter: contrast(1.03) saturate(1.04);
+            }
+
+            .press-credit {
+                margin-top: 0.75rem;
+                font-size: 0.72rem;
+                letter-spacing: 0.18em;
+                text-transform: uppercase;
+                color: var(--white-soft);
+                opacity: 0.7;
+            }
+
+            .press-meta {
+                font-family: var(--font-display);
+                font-weight: 400;
+                font-size: 0.9rem;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                color: var(--gold);
+                margin-bottom: 1.5rem;
+            }
+
+            .press-body p {
+                color: var(--white-soft);
+                font-size: 1.1rem;
+                margin-bottom: 2rem;
+                max-width: 46ch;
+            }
+
+            .press-actions {
+                display: flex;
+                align-items: center;
+                gap: 1.75rem;
+                flex-wrap: wrap;
+            }
+
+            .btn-gold {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.6rem;
+                padding: 0.95rem 2rem;
+                background: var(--gold);
+                color: var(--black);
+                font-family: var(--font-display);
+                font-weight: 600;
+                font-size: 0.85rem;
+                letter-spacing: 0.14em;
+                text-transform: uppercase;
+                text-decoration: none;
+                border: 1px solid var(--gold);
+                transition:
+                    background 0.3s,
+                    color 0.3s,
+                    transform 0.3s;
+            }
+
+            .btn-gold:hover {
+                background: transparent;
+                color: var(--gold);
+                transform: translateY(-2px);
+            }
+
+            .btn-gold .arrow {
+                transition: transform 0.3s;
+            }
+
+            .btn-gold:hover .arrow {
+                transform: translateX(4px);
+            }
+
+            .press-source {
+                font-family: var(--font-display);
+                font-size: 0.78rem;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                color: var(--white-soft);
+                text-decoration: none;
+                border-bottom: 1px solid var(--gold-dim);
+                padding-bottom: 2px;
+                transition:
+                    color 0.3s,
+                    border-color 0.3s;
+            }
+
+            .press-source:hover {
+                color: var(--gold);
+                border-color: var(--gold);
+            }
+
             /* ===== IMAGE BREAK ===== */
             .image-break {
                 width: 100%;
@@ -912,6 +1030,13 @@
                     grid-template-columns: 1fr;
                     gap: 2.5rem;
                 }
+                .press-grid {
+                    grid-template-columns: 1fr;
+                    gap: 2.5rem;
+                }
+                .press-cover {
+                    max-width: 360px;
+                }
                 .services-grid {
                     grid-template-columns: 1fr;
                 }
@@ -1014,6 +1139,62 @@
                 <span class="hero-scroll-label">Scroll</span>
                 <span class="hero-scroll-line"></span>
             </a>
+        </section>
+
+        <!-- IN THE PRESS -->
+        <section class="press">
+            <div class="section-inner">
+                <div class="press-grid reveal">
+                    <figure class="press-figure">
+                        <img
+                            src="images/freesurf-cover.webp"
+                            width="900"
+                            height="1084"
+                            loading="lazy"
+                            decoding="async"
+                            alt="Rainos Hayes carrying his surfboard on the North Shore, from the Freesurf Magazine feature"
+                            class="press-cover"
+                        />
+                        <figcaption class="press-credit">
+                            Photo — Brian Bielmann
+                        </figcaption>
+                    </figure>
+                    <div class="press-body">
+                        <p class="section-tag">In the Press</p>
+                        <h2 class="section-title">
+                            Coach Rainos:<br />Ambassador of Aloha
+                        </h2>
+                        <p class="press-meta">
+                            Freesurf Magazine · Issue v23n4 · Words by Mike
+                            Latronic
+                        </p>
+                        <p>
+                            A new feature on the steady hand and surf coach
+                            behind some of the sport's most significant
+                            athletes — from world champions to the next
+                            generation of North Shore groms.
+                        </p>
+                        <div class="press-actions">
+                            <a
+                                href="press/rainos-hayes-freesurf-v23n4.pdf"
+                                class="btn-gold"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                Read the Article
+                                <span class="arrow" aria-hidden="true">→</span>
+                            </a>
+                            <a
+                                href="https://freesurfmagazine.com"
+                                class="press-source"
+                                target="_blank"
+                                rel="noopener"
+                                >Courtesy of Freesurf Magazine</a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- ABOUT -->
